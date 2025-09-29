@@ -25,7 +25,7 @@ export default function TopTeamsRow() {
   return (
     <div className="teams-row-wrapper">
       <h2 className="teams-title">Top Performing Teams</h2>
-      <div className="teams-row">
+      <div className="teams-row-scroll">
         {teamsData.map((team, index) => (
           <div
             key={index}
@@ -33,9 +33,7 @@ export default function TopTeamsRow() {
           >
             <h3 className="team-name">{team.team}</h3>
             <p className="team-lead">Lead: {team.lead}</p>
-            <p className="team-performance">
-              Performance: {team.performance}
-            </p>
+            <p className="team-performance">Performance: {team.performance}</p>
           </div>
         ))}
       </div>
