@@ -2,10 +2,18 @@
 
 import React, { useState } from "react";
 
-export default function FilterRow() {
+interface FilterRowProps {
+  onFilter: (team: string, agent: string, year: string) => void;
+}
+
+export default function FilterRow({ onFilter }: FilterRowProps) {
   const [team, setTeam] = useState("All Teams");
   const [agent, setAgent] = useState("All Agents");
   const [year, setYear] = useState("Year to Date");
+
+  const handleSearch = () => {
+    onFilter(team, agent, year);
+  };
 
   return (
     <div className="filter-row">
@@ -35,9 +43,16 @@ export default function FilterRow() {
           <option>All Agents</option>
           <option>John Doe</option>
           <option>Jane Smith</option>
-          <option>David Lee</option>
-          <option>Sophia Brown</option>
-          <option>Michael Johnson</option>
+          <option>Ali Khan</option>
+          <option>Sara Lee</option>
+          <option>Michael Chen</option>
+          <option>Ayesha Noor</option>
+          <option>David Smith</option>
+          <option>Fatima Ali</option>
+          <option>Omar Raza</option>
+          <option>Emily Brown</option>
+          <option>Hassan Riaz</option>
+          <option>Sophia Malik</option>
         </select>
       </div>
 
@@ -55,7 +70,9 @@ export default function FilterRow() {
         </select>
       </div>
 
-      <button className="filter-btn">Search</button>
+      <button className="filter-btn" onClick={handleSearch}>
+        Search
+      </button>
     </div>
   );
 }

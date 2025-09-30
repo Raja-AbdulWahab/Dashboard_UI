@@ -327,7 +327,6 @@ html, body {
 .table-panel {
   background: var(--card-bg);
   border-radius: 12px;
-  border: 1px solid var(--panel-border);
   box-shadow: var(--card-shadow);
   height: 360px; /* keep consistent height with chart */
   display: flex;
@@ -554,7 +553,13 @@ html, body {
   font-size: 14px;
   min-width: 160px;
   outline: none;
+  cursor: default;       /* 👈 no hand pointer */
+  appearance: none;      /* 👈 removes default arrow */
+  background: url("data:image/svg+xml;utf8,<svg fill='%23333' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>") no-repeat right 10px center; /* custom caret */
+  background-color: #fff; /* keep background white */
+  background-size: 16px;  /* caret size */
 }
+
 
 .filter-select:focus {
   border-color: #ef6b2e;

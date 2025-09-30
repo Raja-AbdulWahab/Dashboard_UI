@@ -10,8 +10,14 @@ import CallTrendsChart from "@/components/CallTrendsChart";
 import AgentsTable from "@/components/AgentsTable";
 import TopTeamsRow from "@/components/TopTeamsRow";
 import FilterRow from "@/components/FilterRow";
+import {useState} from 'react'
 
 export default function DashboardPage() {
+  const [filters, setFilters] = useState({
+    team: "All Teams",
+    agent: "All Agents",
+    year: "Year to Date",
+  });
   return (
     <div className="dashboard-top">
       <h1 style={{ margin: "8px 0 18px 6px", fontSize: 20, fontWeight: 700 }}>
@@ -19,7 +25,11 @@ export default function DashboardPage() {
       </h1>
 
       {/* 🔹 New Filter Row */}
-      <FilterRow />
+        <FilterRow
+        onFilter={(team, agent, year) =>
+          setFilters({ team, agent, year })
+        }
+      />
 
       {/* 🔹 NEW ROW: Top Teams */}
       <TopTeamsRow />
@@ -60,7 +70,11 @@ export default function DashboardPage() {
 
         {/* Agents table sits in the right column aligned under SummaryTable */}
         <div className="table-panel fade-in-up">
-          <AgentsTable />
+          <AgentsTable
+        filterTeam={filters.team}
+        filterAgent={filters.agent}
+        filterYear={filters.year}
+      />
         </div>
       </div>
     </div>
