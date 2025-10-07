@@ -1,78 +1,93 @@
 "use client";
 
 import React, { useState } from "react";
+import { EuiComboBox, EuiButton } from "@elastic/eui";
 
 interface FilterRowProps {
   onFilter: (team: string, agent: string, year: string) => void;
 }
 
 export default function FilterRow({ onFilter }: FilterRowProps) {
-  const [team, setTeam] = useState("All Teams");
-  const [agent, setAgent] = useState("All Agents");
-  const [year, setYear] = useState("Year to Date");
+  const teams = ["Alpha", "Beta", "Gamma", "Delta", "Epsilon"];
+  const agents = [
+    "John Doe",
+    "Jane Smith",
+    "Ali Khan",
+    "Sara Lee",
+    "Michael Chen",
+    "Ayesha Noor",
+    "David Smith",
+    "Fatima Ali",
+    "Omar Raza",
+    "Emily Brown",
+    "Hassan Riaz",
+    "Sophia Malik",
+  ];
+  const years = ["2025", "2024", "2023"];
+
+  const [selectedTeam, setSelectedTeam] = useState<{ label: string }[]>([]);
+  const [selectedAgent, setSelectedAgent] = useState<{ label: string }[]>([]);
+  const [selectedYear, setSelectedYear] = useState<{ label: string }[]>([]);
 
   const handleSearch = () => {
+    const team = selectedTeam[0]?.label || "All Teams";
+    const agent = selectedAgent[0]?.label || "All Agents";
+    const year = selectedYear[0]?.label || "Year to Date";
     onFilter(team, agent, year);
   };
 
   return (
     <div className="filter-row">
+      {/* Team Dropdown */}
       <div className="filter-item">
         <label className="filter-label">Team</label>
-        <select
-          value={team}
-          onChange={(e) => setTeam(e.target.value)}
-          className="filter-select"
-        >
-          <option>All Teams</option>
-          <option>Alpha</option>
-          <option>Beta</option>
-          <option>Gamma</option>
-          <option>Delta</option>
-          <option>Epsilon</option>
-        </select>
+        <EuiComboBox
+          className="eui-custom-dropdown"
+          singleSelection={{ asPlainText: true }}
+          placeholder="Select Team"
+          options={teams.map((t) => ({ label: t }))}
+          selectedOptions={selectedTeam}
+          onChange={(options) => setSelectedTeam(options)}
+        />
       </div>
 
+      {/* Agent Dropdown */}
       <div className="filter-item">
         <label className="filter-label">Agent</label>
-        <select
-          value={agent}
-          onChange={(e) => setAgent(e.target.value)}
-          className="filter-select"
-        >
-          <option>All Agents</option>
-          <option>John Doe</option>
-          <option>Jane Smith</option>
-          <option>Ali Khan</option>
-          <option>Sara Lee</option>
-          <option>Michael Chen</option>
-          <option>Ayesha Noor</option>
-          <option>David Smith</option>
-          <option>Fatima Ali</option>
-          <option>Omar Raza</option>
-          <option>Emily Brown</option>
-          <option>Hassan Riaz</option>
-          <option>Sophia Malik</option>
-        </select>
+        <EuiComboBox
+          className="eui-custom-dropdown"
+          singleSelection={{ asPlainText: true }}
+          placeholder="Select Agent"
+          options={agents.map((a) => ({ label: a }))}
+          selectedOptions={selectedAgent}
+          onChange={(options) => setSelectedAgent(options)}
+        />
       </div>
 
+      {/* Year Dropdown */}
       <div className="filter-item">
         <label className="filter-label">Year</label>
-        <select
-          value={year}
-          onChange={(e) => setYear(e.target.value)}
-          className="filter-select"
-        >
-          <option>Year to Date</option>
-          <option>2025</option>
-          <option>2024</option>
-          <option>2023</option>
-        </select>
+        <EuiComboBox
+          className="eui-custom-dropdown"
+          singleSelection={{ asPlainText: true }}
+          placeholder="Select Year"
+          options={years.map((y) => ({ label: y }))}
+          selectedOptions={selectedYear}
+          onChange={(options) => setSelectedYear(options)}
+        />
       </div>
 
-      <button className="filter-btn" onClick={handleSearch}>
-        Search
-      </button>
+      {/* Search Button */}
+      <div className="filter-item">
+        <EuiButton
+          fill
+          className="filter-btn"
+          onClick={handleSearch}
+          style={{ height: "40px", marginTop: "18px" }}
+        >
+          Search
+        </EuiButton>
+      </div>
     </div>
   );
 }
