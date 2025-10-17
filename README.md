@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🧭 Dashboard UI
 
-## Getting Started
+A modern, responsive, and data-driven Dashboard Interface built with Next.js, React, and Elastic UI (EUI) components.
+This dashboard provides a clean analytical overview for teams, agents, KPIs, and performance summaries — designed to adapt beautifully across devices.
 
-First, run the development server:
+🚀 Live Preview
 
-```bash
+👉 Live Demo (https://bespoke-blini-5c4989.netlify.app/dashboard)
+
+🖼️ Project Screenshots
+Dashboard Overview	<img width="1183" height="735" alt="dash" src="https://github.com/user-attachments/assets/b2b2a122-a42b-4580-8112-46c4d6a0b181" />
+KPI & Analytics
+
+	
+
+💡 Tip:
+
+Save your screenshots in the public/images folder (or /assets/images)
+
+Update the image paths above to match your folder structure.
+
+⚙️ Features
+
+✅ Responsive design (desktop → tablet → mobile)
+✅ Dynamic filter system (Team, Agent, Year)
+✅ KPI cards with circular percentage indicators
+✅ Top performers and area-wise performance sections
+✅ Scrollable summary and agent tables
+✅ Interactive call trends chart visualization
+✅ Clean UI powered by Elastic UI (EUI) components
+✅ Adaptive layouts for iPad, Surface Duo, and other viewports
+
+🧩 Tech Stack
+Technology	Purpose
+Next.js (App Router)	Frontend Framework
+React 18	UI rendering and component management
+Elastic UI (EUI)	UI component library for consistent design
+CSS Grid / Flexbox	Responsive layout system
+Recharts / Chart.js	Call trends chart
+TypeScript (optional)	Type safety and maintainability
+🧱 Project Structure
+src/
+│
+├── app/
+│   └── dashboard/
+│       └── page.tsx
+│
+├── components/
+│   ├── FilterRow.tsx
+│   ├── TopTeamsRow.tsx
+│   ├── TopKpiStack.tsx
+│   ├── PerformersBox.tsx
+│   ├── AreasCard.tsx
+│   ├── SummaryTable.tsx
+│   ├── CallTrendsChart.tsx
+│   └── AgentsTable.tsx
+│
+└── styles/
+    └── dashboard.css
+
+🧰 Setup Instructions
+1️⃣ Clone the Repository
+git clone https:/Raja-AbdulWahab/github.com//dashboard-ui.git
+cd dashboard-ui
+
+2️⃣ Install Dependencies
+npm install
+# or
+yarn install
+
+3️⃣ Run the Project
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# then open http://localhost:3000
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4️⃣ Build for Production
+npm run build
+npm start
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+📱 Responsive Behavior
+Screen Size	Layout Behavior
+💻 Desktop (≥1200px)	3-column grid: KPI – Performance – Summary
+📊 Medium (≤1200px)	Summary table drops below before column hiding
+📱 Mobile (≤768px)	Stacked full-width components (KPI, Performers, Areas, Tables)
+🧠 Future Enhancements
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+✅ Dark mode toggle
 
-## Learn More
+✅ Real-time data integration via API
 
-To learn more about Next.js, take a look at the following resources:
+✅ Improved chart interactivity
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+✅ Export reports (CSV / PDF)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+✅ Role-based analytics (Admin, Manager, Agent views)
 
-## Deploy on Vercel
+🧑‍💻 Author
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Abdul Wahab
+💼 Full Stack / MERN Developer
+🌐 Portfolio Website (https://raja-abdulwahab.github.io/My_Portfolio/)
